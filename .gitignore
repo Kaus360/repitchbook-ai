@@ -1,4 +1,35 @@
+# Virtual Environment
 venv/
+env/
+ENV/
+
+# Python cache
 __pycache__/
-.env
 *.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Mac / Windows junk
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Build artifacts
+dist/
+build/
+
+# Testing
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/

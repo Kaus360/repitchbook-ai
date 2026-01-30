@@ -1,11 +1,33 @@
 from pydantic import BaseModel, Field
+from typing import List, Dict
+
 
 class DealInput(BaseModel):
-    location: str = Field(..., example="Gurgaon")
-    property_price: float = Field(..., example=12000000)
-    expected_rent: float = Field(..., example=45000)
-    down_payment: float = Field(..., example=2400000)
-    interest_rate: float = Field(..., example=8.5)
-    loan_years: int = Field(..., example=20)
-    annual_costs: float = Field(..., example=300000)
-    appreciation_rate: float = Field(..., example=6)
+
+    city: str = Field(..., description="Target investment city")
+
+    property_price: float = Field(..., gt=0)
+    expected_rent: float = Field(..., gt=0)
+    annual_costs: float = Field(..., ge=0)
+    appreciation_rate: float = Field(..., ge=0, le=25)
+    loan_years: int = Field(..., gt=0, le=40)
+
+
+class DealAnalysisResponse(BaseModel):
+
+    investment_score: float
+    verdict: str
+
+    rental_yield: float
+    cash_flow: float
+    roi_percent: float
+    roi_projection: List[float]
+
+    risk_level: str
+    executive_summary: str
+    recommendation: str
+
+    market_snapshot: Dict
+
+    # ⭐ NEW FIELD
+    ai_investment_memo: str

@@ -1,28 +1,20 @@
 def investment_score(roi, rental_yield, cash_flow):
-    score = 50
 
-    if roi > 40:
-        score += 20
-    elif roi > 20:
-        score += 10
+    score = (
+        (roi * 0.4) +
+        (rental_yield * 0.3) +
+        ((cash_flow / 10000) * 0.3)
+    )
 
-    if rental_yield > 5:
-        score += 15
-    elif rental_yield > 3:
-        score += 8
+    score = round(min(score, 100), 2)
 
-    if cash_flow > 0:
-        score += 10
-
-    score = min(score, 100)
-
-    if score >= 80:
+    if score > 75:
         verdict = "Strong Buy"
-    elif score >= 65:
+    elif score > 60:
         verdict = "Buy"
-    elif score >= 50:
-        verdict = "Neutral"
+    elif score > 45:
+        verdict = "Hold"
     else:
-        verdict = "High Risk"
+        verdict = "Avoid"
 
     return score, verdict
