@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 226 60% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 199 70% 45%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 226 60% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --success: 152 60% 40%;
+    --success-foreground: 210 40% 98%;
+    
+    --warning: 38 80% 50%;
+    --warning-foreground: 222 47% 11%;
+
+    --chart-1: 226 60% 50%;
+    --chart-2: 199 70% 45%;
+    --chart-3: 152 60% 40%;
+    --chart-4: 38 80% 50%;
+    --chart-5: 280 50% 55%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(226 60% 50%) 0%, hsl(240 55% 55%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(199 70% 45%) 0%, hsl(210 70% 50%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(220 14% 97%) 0%, hsl(220 14% 99%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(226 60% 50% / 0.08) 0%, transparent 70%);
+
+    --shadow-sm: 0 1px 2px hsl(220 13% 80% / 0.4);
+    --shadow-md: 0 4px 12px hsl(220 13% 80% / 0.5);
+    --shadow-lg: 0 8px 24px hsl(220 13% 80% / 0.6);
+    --shadow-glow: 0 0 30px hsl(226 60% 50% / 0.12);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 9% 46%;
+    --sidebar-primary: 226 60% 50%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 90%;
+    --sidebar-ring: 226 60% 50%;
+  }
+
+  .dark {
+    /* Premium deep navy/charcoal palette */
+    --background: 222 30% 7%;
+    --foreground: 210 20% 96%;
+
+    --card: 222 28% 9%;
+    --card-foreground: 210 20% 96%;
+
+    --popover: 222 28% 11%;
+    --popover-foreground: 210 20% 96%;
+
+    --primary: 220 55% 55%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 25% 14%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 25% 12%;
+    --muted-foreground: 220 15% 50%;
+
+    --accent: 199 60% 50%;
+    --accent-foreground: 222 30% 7%;
+
+    --destructive: 0 55% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 16%;
+    --input: 220 20% 16%;
+    --ring: 220 55% 55%;
+
+    /* Refined semantic tokens */
+    --success: 152 55% 45%;
+    --success-foreground: 210 40% 98%;
+    
+    --warning: 38 75% 55%;
+    --warning-foreground: 222 30% 7%;
+
+    /* Muted, professional chart colors */
+    --chart-1: 220 55% 55%;
+    --chart-2: 199 50% 50%;
+    --chart-3: 152 50% 45%;
+    --chart-4: 38 65% 55%;
+    --chart-5: 270 40% 55%;
+
+    /* Subtle, refined gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 55% 55%) 0%, hsl(240 50% 50%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(199 50% 50%) 0%, hsl(210 55% 50%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(222 28% 11%) 0%, hsl(222 28% 9%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(220 55% 55% / 0.1) 0%, transparent 70%);
+
+    /* Deep, subtle shadows */
+    --shadow-sm: 0 1px 2px hsl(222 30% 3% / 0.4);
+    --shadow-md: 0 4px 12px hsl(222 30% 3% / 0.5);
+    --shadow-lg: 0 8px 24px hsl(222 30% 3% / 0.6);
+    --shadow-glow: 0 0 30px hsl(220 55% 55% / 0.15);
+
+    /* Sidebar - slightly lighter than background for contrast */
+    --sidebar-background: 222 28% 8%;
+    --sidebar-foreground: 220 15% 60%;
+    --sidebar-primary: 220 55% 55%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 25% 13%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 220 20% 14%;
+    --sidebar-ring: 220 55% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Premium scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.35);
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .bg-gradient-surface {
+    background: var(--gradient-surface);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Subtle border enhancement for cards */
+  .border-subtle {
+    border-color: hsl(var(--border) / 0.8);
+  }
+
+  /* Elevated card style */
+  .card-elevated {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--border)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .animate-gradient {
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 70%);
+  }
+
+  .glass {
+    background: hsl(var(--card) / 0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Tabular numbers for financial data */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
