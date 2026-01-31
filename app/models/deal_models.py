@@ -1,10 +1,16 @@
 from pydantic import BaseModel, Field
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 
 class DealInput(BaseModel):
 
     city: str = Field(..., description="Target investment city")
+
+    # ⭐ NEW — OPTIONAL HYPERLOCAL FIELD
+    area: Optional[str] = Field(
+        None,
+        description="Optional micro-market within the city"
+    )
 
     property_price: float = Field(..., gt=0)
     expected_rent: float = Field(..., gt=0)
@@ -29,5 +35,4 @@ class DealAnalysisResponse(BaseModel):
 
     market_snapshot: Dict
 
-    # ⭐ NEW FIELD
     ai_investment_memo: str
