@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from app.routes import analyze, health
+from app.routes import analyze, health, markets
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -18,6 +18,8 @@ app = FastAPI(
 
 app.include_router(health.router)
 app.include_router(analyze.router)
+app.include_router(markets.router)
+
 
 
 @app.get("/")
